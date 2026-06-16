@@ -1,5 +1,4 @@
 from langchain_ollama import ChatOllama
-
 from tools import (
     open_chrome,
     open_vscode,
@@ -11,9 +10,7 @@ from tools import (
     read_file,
     web_search
 )
-
 from memory import save_memory, get_memories
-
 
 llm = ChatOllama(model="llama3.2")
 
@@ -31,31 +28,40 @@ tools = {
 
 llm_with_tools = llm.bind_tools(list(tools.values()))
 
-print("=== Router Jarvis Started ===")
+print("=== Jarvis v2 Started ===")
 print("Type 'exit' to quit.\n")
 
 while True:
 
     try:
 
-        user = input("You: ")
+        user = input("You: ").strip()
 
         if user.lower() == "exit":
             print("Jarvis shutting down...")
             break
 
-        # MEMORY SAVE
+        # Identity route
+        if user.lower() in ["hi", "hello", "hey"]:
+            print("\nJarvis: Hello! I am Jarvis, your AI assistant.\n")
+            continue
+
+        if user.lower() in ["what is your name", "who are you"]:
+            print("\nJarvis: I am Jarvis, your AI assistant.\n")
+            continue
+
+        # Memory save
         if user.lower().startswith("remember"):
 
             fact = user[8:].strip()
 
             save_memory(fact)
 
-            print("Jarvis: Memory saved.\n")
+            print("\nJarvis: Memory saved.\n")
 
             continue
 
-        # SHOW MEMORY
+        # Show memory
         if user.lower() == "show memory":
 
             memories = get_memories()
@@ -69,7 +75,7 @@ while True:
 
             continue
 
-        # WEB SEARCH
+        # Web search
         if user.lower().startswith("search "):
 
             query = user[7:].strip()
@@ -80,7 +86,7 @@ while True:
 
             answer = llm.invoke(
                 f"""
-Answer the question using these search results.
+Answer using these search results.
 
 Question:
 {query}
@@ -90,13 +96,12 @@ Results:
 """
             )
 
-            print("\nJarvis:")
-            print(answer.content)
+            print("\nJarvis:", answer.content)
             print()
 
             continue
 
-        # READ FULL PATH
+        # Read file by full path
         if user.lower().startswith("read /"):
 
             filepath = user[5:].strip()
@@ -111,7 +116,7 @@ Results:
 
             continue
 
-        # EXPLAIN FILE
+        # Explain file
         if user.lower().startswith("explain "):
 
             filename = user[8:].strip()
@@ -148,7 +153,7 @@ Code:
 
             continue
 
-        # ANALYZE PROJECT
+        # Analyze project
         if user.lower() == "analyze my project":
 
             files = find_python_files.invoke({})
@@ -174,13 +179,12 @@ Code:
 Analyze this software project.
 
 Explain:
-
 1. Purpose
 2. Architecture
 3. Main Components
 4. Strengths
 5. Weaknesses
-6. Suggested Improvements
+6. Improvements
 
 Code:
 
@@ -194,7 +198,7 @@ Code:
 
             continue
 
-        # TOOL ROUTE
+        # Tool route
         if any(
             word in user.lower()
             for word in ["open", "launch", "start", "find"]
@@ -210,72 +214,47 @@ Code:
 
                 tool_args = tool_call.get("args", {})
 
-                print(f"\nSelected Tool: {tool_name}")
-
-                if tool_args:
-                    print(f"Arguments: {tool_args}")
-
                 result = tools[tool_name].invoke(tool_args)
 
-                print(f"Jarvis: {result}")
+                print(f"\nJarvis: {result}")
+                print()
 
             else:
 
                 print(f"\nJarvis: {response.content}")
-
-            print()
+                print()
 
             continue
 
-	# BASIC IDENTITY ROUTE
+        # Chat + memory
 
-if user.lower() in [
-    "hi",
-    "hello",
-    "hey"
-]:
+        memories = get_memories()
 
-    print("\nJarvis: Hello! I am Jarvis, your AI assistant.")
-    print()
-
-    continue
-
-
-if user.lower() in [
-    "what is your name",
-    "who are you"
-]:
-
-    print("\nJarvis: I am Jarvis, your AI assistant.")
-    print()
-
-    continue
-
-
-# CHAT + MEMORY
-
-memories = get_memories()
-
-memory_text = "\n".join(memories)
-
-prompt = f"""
+        prompt = f"""
 You are Jarvis, a helpful AI assistant.
 
-Known facts about the user:
-{memory_text}
+Known facts:
+{chr(10).join(memories)}
 
 Rules:
-- Use memories only when relevant.
-- If the user greets you, greet them normally.
-- If the user asks your name, answer that your name is Jarvis.
-- Do not mention memories unless they help answer the question.
-- Be concise and helpful.
+- Use memory only when relevant.
+- Don't mention memory unless needed.
+- If asked your name, say you are Jarvis.
 
 User:
 {user}
 """
 
-response = llm.invoke(prompt)
+        response = llm.invoke(prompt)
 
-print("\nJarvis:", response.content)
-print()
+        print("\nJarvis:", response.content)
+        print()
+
+    except KeyboardInterrupt:
+
+        print("\nJarvis shutting down...")
+        break
+
+    except Exception as e:
+
+        print("\nError:", e)

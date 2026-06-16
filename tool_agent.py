@@ -1,28 +1,34 @@
 from langchain_ollama import ChatOllama
+
 from tools import (
     open_chrome,
     open_vscode,
     open_terminal,
     open_files,
     open_calculator,
-    find_python_files
+    find_python_files,
+    find_file,
+    read_file
 )
+
 # LLM
 llm = ChatOllama(
     model="llama3.2"
 )
 
 # Tool Registry
-
 tools = {
     "open_chrome": open_chrome,
     "open_vscode": open_vscode,
     "open_terminal": open_terminal,
     "open_files": open_files,
     "open_calculator": open_calculator,
-    "find_python_files": find_python_files
+    "find_python_files": find_python_files,
+    "find_file": find_file,
+    "read_file":read_file
 }
-# Bind tools to the LLM
+
+# Bind tools
 llm_with_tools = llm.bind_tools(
     list(tools.values())
 )
@@ -30,53 +36,81 @@ llm_with_tools = llm.bind_tools(
 print("=== Jarvis Started ===")
 print("Type 'exit' to quit.\n")
 
+SYSTEM_PROMPT = """
+You are Jarvis.
+
+Rules:
+
+1. If the user wants Chrome, browser, internet browsing:
+   use open_chrome.
+
+2. If the user wants VS Code, coding editor:
+   use open_vscode.
+
+3. If the user wants a terminal, shell, console:
+   use open_terminal.
+
+4. If the user wants calculator:
+   use open_calculator.
+
+5. If the user wants file explorer or file manager:
+   use open_files.
+
+6. If the user wants to find all python files:
+   use find_python_files.
+
+7. If the user wants to locate a specific file:
+   use find_file.
+
+Examples:
+
+User: Find tool_agent.py
+Tool: find_file
+
+User: Locate settings.py
+Tool: find_file
+
+User: Search for README.md
+Tool: find_file
+
+Always prefer tools when available.
+"""
+
 while True:
 
     try:
+
         user = input("You: ")
 
         if user.lower() == "exit":
             print("Jarvis shutting down...")
             break
 
-        response = llm_with_tools.invoke(user)
+        prompt = f"""
+{SYSTEM_PROMPT}
 
-        # Structured Tool Calls
+User request:
+{user}
+"""
+
+        response = llm_with_tools.invoke(prompt)
+
         if response.tool_calls:
 
-            tool_name = response.tool_calls[0]["name"]
+            tool_call = response.tool_calls[0]
+
+            tool_name = tool_call["name"]
+
+            tool_args = tool_call.get("args", {})
 
             print(f"\nSelected Tool: {tool_name}")
 
-            result = tools[tool_name].invoke({})
+            if tool_args:
+                print(f"Arguments: {tool_args}")
+
+            result = tools[tool_name].invoke(tool_args)
 
             print(f"Jarvis: {result}")
-
-        # Fallback for models that return tool names as text
-        elif "open_chrome" in response.content:
-
-            print("\nSelected Tool: open_chrome")
-            print("Jarvis:", open_chrome.invoke({}))
-
-        elif "open_vscode" in response.content:
-
-            print("\nSelected Tool: open_vscode")
-            print("Jarvis:", open_vscode.invoke({}))
-
-        elif "open_terminal" in response.content:
-
-            print("\nSelected Tool: open_terminal")
-            print("Jarvis:", open_terminal.invoke({}))
-
-        elif "open_files" in response.content:
-
-            print("\nSelected Tool: open_files")
-            print("Jarvis:", open_files.invoke({}))
-
-        elif "open_calculator" in response.content:
-
-            print("\nSelected Tool: open_calculator")
-            print("Jarvis:", open_calculator.invoke({}))
 
         else:
 

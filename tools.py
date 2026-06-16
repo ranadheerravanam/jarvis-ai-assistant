@@ -1,4 +1,5 @@
 from langchain.tools import tool
+from duckduckgo_search import DDGS
 import subprocess
 import os
 
@@ -180,3 +181,29 @@ def explain_file(filepath: str):
     except Exception as e:
 
         return f"Error: {e}"
+@tool
+def web_search(query: str):
+    """
+    Search the web for information.
+    """
+
+    try:
+
+        results = []
+
+        with DDGS() as ddgs:
+
+            for r in ddgs.text(
+                query,
+                max_results=5
+            ):
+
+                results.append(
+                    f"{r['title']}\n{r['body']}"
+                )
+
+        return "\n\n".join(results)
+
+    except Exception as e:
+
+        return f"Search error: {e}"

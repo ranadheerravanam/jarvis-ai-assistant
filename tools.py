@@ -165,3 +165,18 @@ def explain_file(filepath: str):
     except Exception as e:
 
         return f"Error: {e}"
+@tool
+def explain_file(filepath: str):
+    """
+    Read a Python file and explain it.
+    """
+
+    try:
+
+        with open(filepath, "r", encoding="utf-8") as f:
+
+            return f.read()[:5000]
+
+    except Exception as e:
+
+        return f"Error: {e}"

@@ -1,5 +1,3 @@
-from tools import open_chrome
-print(open_chrome())
+from tools import find_python_files
 
-from tools import open_vscode
-print(open_vscode())
+print(find_python_files.invoke({}))

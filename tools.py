@@ -73,12 +73,22 @@ def open_calculator():
 @tool
 def find_python_files():
     """
-    Find Python (.py) files in the user's home directory.
+    Find Python files in the current project directory.
     """
+
+    import os
+
+    project_dir = os.getcwd()
 
     matches = []
 
-    for root, dirs, files in os.walk(os.path.expanduser("~")):
+    for root, dirs, files in os.walk(project_dir):
+
+        # Ignore virtual environments
+        dirs[:] = [
+            d for d in dirs
+            if d not in ["venv", "myenv", "__pycache__", ".git"]
+        ]
 
         for file in files:
 
@@ -88,14 +98,7 @@ def find_python_files():
                     os.path.join(root, file)
                 )
 
-        if len(matches) >= 20:
-            break
-
-    if not matches:
-        return "No Python files found"
-
-    return "\n".join(matches[:20])
-
+    return "\n".join(matches)
 
 @tool
 def find_file(filename: str):

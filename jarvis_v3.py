@@ -1,4 +1,5 @@
 from langchain_ollama import ChatOllama
+from rag.rag_engine import ask_rag
 from tools import *
 
 llm = ChatOllama(model="llama3.2")
@@ -12,7 +13,19 @@ while True:
 
     if user.lower() == "exit":
         break
+# PDF RAG
 
+    if user.lower().startswith("ask pdf"):
+
+        question = user[7:].strip()
+
+        answer = ask_rag(question)
+
+        print("\nJarvis:")
+        print(answer)
+        print()
+
+        continue
     # PROJECT ANALYSIS
 
     if "analyze my project" in user.lower():
@@ -47,6 +60,17 @@ while True:
         subprocess.run(
             ["python", "refactor_agent.py",filename]
         )
+
+        continue
+    if user.lower().startswith("ask pdf"):
+
+        question = user[7:].strip()
+
+        answer = ask_rag(question)
+
+        print("\nJarvis:")
+        print(answer)
+        print()
 
         continue
 

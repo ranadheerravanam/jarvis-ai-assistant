@@ -1,5 +1,6 @@
 from langchain.tools import tool
 from duckduckgo_search import DDGS
+import webbrowser
 import subprocess
 import os
 
@@ -207,3 +208,178 @@ def web_search(query: str):
     except Exception as e:
 
         return f"Search error: {e}"
+@tool
+def open_youtube():
+    """Open YouTube."""
+    webbrowser.open("https://www.youtube.com")
+    return "YouTube opened"
+
+
+@tool
+def open_netflix():
+    """Open Netflix."""
+    webbrowser.open("https://www.netflix.com")
+    return "Netflix opened"
+
+
+@tool
+def open_prime():
+    """Open Prime Video."""
+    webbrowser.open("https://www.primevideo.com")
+    return "Prime Video opened"
+
+
+@tool
+def open_hotstar():
+    """Open Disney+ Hotstar."""
+    webbrowser.open("https://www.hotstar.com")
+    return "Hotstar opened"
+
+
+@tool
+def open_vtop():
+    """Open VTOP."""
+    webbrowser.open("https://vtopcc.vit.ac.in/vtop/content")
+    return "VTOP opened"
+@tool
+def open_youtube_personal():
+    """
+    Open YouTube using personal account.
+    """
+
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://www.youtube.com"
+    ])
+
+    return "YouTube opened with personal account"
+
+
+@tool
+def open_gmail_personal():
+    """
+    Open Gmail using personal account.
+    """
+
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://mail.google.com"
+    ])
+
+    return "Gmail opened with personal account"
+
+
+@tool
+def open_netflix_personal():
+    """
+    Open Netflix using personal account.
+    """
+
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://www.netflix.com"
+    ])
+
+    return "Netflix opened with personal account"
+
+
+@tool
+def open_netflix_personal():
+    """
+    Open Netflix using personal account.
+    """
+
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://www.primevideo.com"
+    ])
+
+    return "Prime Video opened with personal account"
+
+
+@tool
+def open_hotstar_personal():
+    """
+    Open Hotstar using personal account.
+    """
+
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://www.hotstar.com"
+    ])
+
+    return "Hotstar opened with personal account"
+@tool
+def open_youtube_personal():
+    """
+    Open YouTube using personal account.
+    """
+
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://www.youtube.com"
+    ])
+
+    return "YouTube opened with personal account"
+
+
+@tool
+def open_gmail_personal():
+    """
+    Open Gmail using personal account.
+    """
+
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://mail.google.com"
+    ])
+
+    return "Gmail opened with personal account"
+@tool
+def open_netflix_personal():
+    """
+    Open Netflix using personal account.
+    """
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://www.netflix.com"
+    ])
+
+    return "Netflix opened with personal account"
+
+
+@tool
+def open_prime_personal():
+    """
+    Open Prime Video using personal account.
+    """
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://www.primevideo.com"
+    ])
+
+    return "Prime Video opened with personal account"
+
+
+@tool
+def open_hotstar_personal():
+    """
+    Open Hotstar using personal account.
+    """
+
+    subprocess.Popen([
+        "google-chrome",
+	"--profile-directory=Default"
+        "https://www.hotstar.com"
+    ])
+
+    return "Hotstar opened with personal account"

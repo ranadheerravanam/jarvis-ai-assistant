@@ -1,4 +1,5 @@
 from langchain_ollama import ChatOllama
+from browser_tools import ott_search
 from tools import (
     open_chrome,
     open_vscode,
@@ -8,7 +9,23 @@ from tools import (
     find_python_files,
     find_file,
     read_file,
-    web_search
+    web_search,
+    open_youtube,
+    open_netflix,
+    open_prime,
+    open_hotstar,
+    open_vtop,
+    open_youtube_personal,
+    open_gmail_personal,
+    open_netflix_personal,
+    open_prime_personal,
+    open_hotstar_personal,
+)
+from browser_tools import (
+    youtube_search,
+    google_search,
+    github_search,
+    ott_search
 )
 from memory import save_memory, get_memories
 
@@ -23,7 +40,17 @@ tools = {
     "find_python_files": find_python_files,
     "find_file": find_file,
     "read_file": read_file,
-    "web_search": web_search
+    "web_search": web_search,
+    "open_youtube": open_youtube,
+    "open_netflix": open_netflix,
+    "open_prime": open_prime,
+    "open_hotstar": open_hotstar,
+    "open_vtop": open_vtop,
+    "open_youtube_personal": open_youtube_personal,
+    "open_gmail_personal": open_gmail_personal,
+    "open_netflix_personal": open_netflix_personal,
+    "open_prime_personal": open_prime_personal,
+    "open_hotstar_personal": open_hotstar_personal,
 }
 
 llm_with_tools = llm.bind_tools(list(tools.values()))
@@ -74,7 +101,95 @@ while True:
             print()
 
             continue
+        # YouTube Search
 
+        if user.lower().startswith("search youtube for"):
+
+            query = user[18:].strip()
+
+            print(
+                "\nJarvis:",
+                youtube_search(query)
+            )
+            print()
+
+            continue
+
+
+        # Google Search
+
+        if user.lower().startswith("search google for"):
+
+            query = user[17:].strip()
+
+            print(
+                "\nJarvis:",
+                google_search(query)
+            )
+            print()
+
+            continue
+
+
+        # GitHub Search
+
+        if user.lower().startswith("search github for"):
+
+            query = user[17:].strip()
+
+            print(
+                "\nJarvis:",
+                github_search(query)
+            )
+            print()
+
+            continue
+        # OTT SEARCH
+
+        if user.lower().startswith("search netflix for"):
+
+            query = user[len("search netflix for"):].strip()
+
+            print("\nJarvis:", ott_search("netflix", query))
+            print()
+
+            continue
+
+        if user.lower().startswith("search prime for"):
+
+            query = user[len("search prime for"):].strip()
+
+            print("\nJarvis:", ott_search("prime", query))
+            print()
+
+            continue
+
+        if user.lower().startswith("search hotstar for"):
+
+            query = user[len("search hotstar for"):].strip()
+
+            print("\nJarvis:", ott_search("hotstar", query))
+            print()
+
+            continue
+
+        if user.lower().startswith("search zee5 for"):
+
+            query = user[len("search zee5 for"):].strip()
+
+            print("\nJarvis:", ott_search("zee5", query))
+            print()
+
+            continue
+
+        if user.lower().startswith("search sony for"):
+
+            query = user[len("search sony for"):].strip()
+
+            print("\nJarvis:", ott_search("sony", query))
+            print()
+
+            continue
         # Web search
         if user.lower().startswith("search "):
 
@@ -197,7 +312,94 @@ Code:
             print()
 
             continue
+# PERSONAL ACCOUNT ROUTES
 
+        if "youtube" in user.lower() and "personal" in user.lower():
+
+            print(
+                "\nJarvis:",
+                open_youtube_personal.invoke({})
+            )
+            print()
+
+            continue
+
+
+        if "gmail" in user.lower() and "personal" in user.lower():
+
+            print(
+                "\nJarvis:",
+                open_gmail_personal.invoke({})
+            )
+            print()
+
+            continue
+
+
+        if "netflix" in user.lower() and "personal" in user.lower():
+
+            print(
+                "\nJarvis:",
+                open_netflix_personal.invoke({})
+            )
+            print()
+
+            continue
+
+
+        if "prime" in user.lower() and "personal" in user.lower():
+
+            print(
+                "\nJarvis:",
+                open_prime_personal.invoke({})
+            )
+            print()
+
+            continue
+
+
+        if "hotstar" in user.lower() and "personal" in user.lower():
+
+            print(
+                "\nJarvis:",
+                open_hotstar_personal.invoke({})
+            )
+            print()
+
+            continue
+# MULTI COMMAND ROUTE
+
+        if " and " in user.lower():
+
+            cmd = user.lower()
+
+            if "youtube" in cmd:
+                print(open_youtube_personal.invoke({}))
+
+            if "gmail" in cmd:
+                print(open_gmail_personal.invoke({}))
+
+            if "netflix" in cmd:
+                print(open_netflix_personal.invoke({}))
+
+            if "prime" in cmd:
+                print(open_prime_personal.invoke({}))
+
+            if "hotstar" in cmd:
+                print(open_hotstar_personal.invoke({}))
+
+            if "chrome" in cmd:
+                print(open_chrome.invoke({}))
+
+            if "vscode" in cmd:
+                print(open_vscode.invoke({}))
+
+            if "terminal" in cmd:
+                print(open_terminal.invoke({}))
+
+            print()
+
+            continue
         # Tool route
         if any(
             word in user.lower()

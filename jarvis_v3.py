@@ -1,7 +1,9 @@
 from langchain_ollama import ChatOllama
 from rag.rag_engine import ask_rag
-from tools import *
 from code_rag.code_engine import ask_code
+from memory import save_memory, get_memories
+from tools import *
+
 import subprocess
 
 llm = ChatOllama(model="llama3.2")
@@ -15,6 +17,35 @@ while True:
 
     if user.lower() == "exit":
         break
+
+    # MEMORY SAVE
+
+    if user.lower().startswith("remember"):
+
+        fact = user[8:].strip()
+
+        save_memory(fact)
+
+        print("\nJarvis:")
+        print("Memory saved.")
+        print()
+
+        continue
+    # SHOW MEMORY
+
+    if user.lower() == "show memory":
+
+        memories = get_memories()
+
+        print("\nJarvis:")
+
+        for m in memories:
+            print("-", m)
+
+        print()
+
+        continue
+
 
     # PDF RAG
 
@@ -152,8 +183,20 @@ while True:
         print()
 
         continue
-    response = llm.invoke(user)
+    memories = get_memories()
 
+    prompt = f"""
+You are Jarvis.
+
+Known facts:
+
+{chr(10).join(memories)}
+
+User:
+{user}
+"""
+
+    response = llm.invoke(prompt)
     print("\nJarvis:")
     print(response.content)
     print()

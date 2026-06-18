@@ -1,7 +1,9 @@
 import os
+
 from langchain_ollama import ChatOllama
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
+
 llm = ChatOllama(model="llama3.2")
 
 embedding = HuggingFaceEmbeddings(
@@ -18,38 +20,30 @@ db = Chroma(
     embedding_function=embedding
 )
 
-
-def ask_rag(question):
+def ask_code(question):
 
     docs = db.similarity_search(
         question,
-        k=3
+        k=4
+    )
 
-    )
-    docs = db.similarity_search(
-        question,
-        k=3
-    )
     context = "\n\n".join(
         doc.page_content
         for doc in docs
     )
 
     prompt = f"""
-You are a question-answering assistant.
+You are an expert software engineer.
 
-Answer ONLY from the provided context.
+Answer ONLY from the code context.
 
-If the answer exists in the context, give a direct answer.
-
-If the answer does not exist, say:
-"I could not find that information in the document."
-
-Context:
+Code Context:
 {context}
 
 Question:
 {question}
-
-Answer:
 """
+
+    response = llm.invoke(prompt)
+
+    return response.content

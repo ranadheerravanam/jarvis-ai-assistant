@@ -1,5 +1,5 @@
 from langchain.tools import tool
-from duckduckgo_search import DDGS
+from ddgs import DDGS
 import webbrowser
 import subprocess
 import os
@@ -200,7 +200,7 @@ def web_search(query: str):
             ):
 
                 results.append(
-                    f"{r['title']}\n{r['body']}"
+                    f"• {r['title']}\n  {r['body'][:200]}..."
                 )
 
         return "\n\n".join(results)

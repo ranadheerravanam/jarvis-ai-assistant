@@ -3,7 +3,12 @@ from rag.rag_engine import ask_rag
 from code_rag.code_engine import ask_code
 from memory import save_memory, get_memories
 from tools import *
-
+from browser_tools import (
+    youtube_search,
+    google_search,
+    github_search,
+    ott_search
+)
 import subprocess
 
 llm = ChatOllama(model="llama3.2")
@@ -14,7 +19,15 @@ print("Type exit to quit\n")
 while True:
 
     user = input("You: ")
+    # PROJECT SUMMARY
 
+    if user.lower() == "analyze my project":
+
+        subprocess.run(
+            ["python", "project_summary_agent.py"]
+        )
+
+        continue
     if user.lower() == "exit":
         break
 
@@ -168,8 +181,6 @@ while True:
         print()
 
         continue
-
-    # NORMAL CHAT
     # CODE RAG
 
     if user.lower().startswith("ask code"):
@@ -195,13 +206,94 @@ Known facts:
 User:
 {user}
 """
+    # AGENT ROUTER
 
+    if ".py" in user.lower():
+
+        import subprocess
+
+        subprocess.run(
+            ["python", "agent_router.py"],
+            input=user,
+            text=True
+        )
+
+        continue
+    # YOUTUBE SEARCH
+
+    if user.lower().startswith("youtube"):
+
+        query = user[7:].strip()
+
+        print("\nJarvis:")
+
+        print(
+            youtube_search(query)
+        )
+
+        print()
+
+        continue
+# GOOGLE SEARCH
+
+    if user.lower().startswith("google"):
+
+        query = user[6:].strip()
+
+        print("\nJarvis:")
+
+        print(
+            google_search(query)
+        )
+
+        print()
+
+        continue
+# GITHUB SEARCH
+
+    if user.lower().startswith("github"):
+
+        query = user[6:].strip()
+
+        print("\nJarvis:")
+
+        print(
+            github_search(query)
+        )
+
+        print()
+
+        continue
+# NETFLIX SEARCH
+
+    if user.lower().startswith("netflix"):
+
+        query = user[7:].strip()
+
+        print("\nJarvis:")
+
+        print(
+            ott_search(
+                "netflix",
+                query
+            )
+        )
+
+
+        print()
+
+        continue
+    # NORMAL CHAT
+
+    response = llm.invoke(user)
+
+    print("\nJarvis:")
+    print(response.content)
+    print()
+
+
+#Normal Chat
     response = llm.invoke(prompt)
     print("\nJarvis:")
     print(response.content)
     print()
-    if user.lower().startswith("search"):
-
-        print("DEBUG: SEARCH ROUTE HIT")
-
-        query = user[6:].strip()

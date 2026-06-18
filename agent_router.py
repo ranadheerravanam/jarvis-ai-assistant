@@ -1,9 +1,16 @@
 from langchain_ollama import ChatOllama
 
+
+import sys
+
+if not sys.stdin.isatty():
+
+    query = sys.stdin.read().strip()
+
+else:
+
+    query = input("Task: ")
 llm = ChatOllama(model="llama3.2")
-
-query = input("Task: ")
-
 prompt = f"""
 You are an agent router.
 
@@ -26,31 +33,66 @@ Return ONLY ONE WORD.
 Task:
 {query}
 """
+q = query.lower()
 
-response = llm.invoke(prompt)
+if "review" in q or "bug" in q or "issue" in q:
 
+    response_text = "bug_finder"
+
+elif "refactor" in q or "optimize" in q or "improve" in q:
+
+    response_text = "refactor_agent"
+
+elif "explain" in q or "understand" in q:
+
+    response_text = "file_agent"
+
+elif "analyze my project" in q:
+
+    response_text = "project_agent"
+else:
+
+    response = llm.invoke(prompt)
+
+    response_text = response.content.strip()
 print("\nAgent:")
-print(response.content.strip())
+print(response_text)
+
 import subprocess
 
-agent = response.content.strip().lower()
+agent = response_text.lower()
+filename = None
 
-print("\nAgent:", agent)
+for word in query.split():
+
+    if word.endswith(".py"):
+        filename = word
+        break
 
 if agent == "bug_finder":
-    subprocess.run([
-        "python",
-        "bug_finder.py",
-        "tools.py"
-    ])
-elif agent == "project_agent":
-    subprocess.run(["python", "project_agent.py"])
 
-elif agent == "file_agent":
-    subprocess.run(["python", "file_agent.py"])
+    subprocess.run(
+        ["python", "bug_finder.py", filename or "tools.py"]
+    )
 
 elif agent == "refactor_agent":
-    subprocess.run(["python", "refactor_agent.py"])
+
+    subprocess.run(
+        ["python", "refactor_agent.py", filename or "tools.py"]
+    )
+
+elif agent == "file_agent":
+
+    subprocess.run(
+        ["python", "file_agent.py", filename or "tools.py"]
+    )
+
+elif agent == "project_agent":
+
+    subprocess.run(
+        ["python", "project_agent.py"]
+    )
 
 else:
+
     print("No suitable agent found.")

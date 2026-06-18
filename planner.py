@@ -8,19 +8,24 @@ def make_plan(task):
     prompt = f"""
 You are Jarvis Planner.
 
-Available Tools:
+Available tools:
 
-1. find_python_files
-2. read_file
-3. web_search
-4. find_file
+find_python_files
+read_file
+find_file
+web_search
 
-Create a step-by-step plan using ONLY these tools.
+Create a plan.
+
+Rules:
+- Return ONLY tool names.
+- One tool per line.
+- No explanations.
+- No bullet points.
+- No numbering.
 
 Task:
 {task}
-
-Return numbered steps.
 """
 
     response = llm.invoke(prompt)

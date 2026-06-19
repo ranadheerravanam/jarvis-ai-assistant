@@ -1,0 +1,33 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Application</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Todo Application</h1>
+        {% if user %}
+            <p>Welcome, {{ user.username }}!</p>
+        {% else %}
+            <p>Please log in.</p>
+        {% endif %}
+    </header>
+    <main>
+        <form action="{% url 'add_task' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="task" placeholder="Add new task">
+            <button type="submit">Add</button>
+        </form>
+        <ul>
+            {% for task in tasks %}
+                <li>{{ task }}</li>
+            {% endfor %}
+        </ul>
+    </main>
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

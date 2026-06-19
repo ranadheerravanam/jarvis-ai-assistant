@@ -130,23 +130,102 @@ def find_file(filename: str):
 
     return "\n".join(matches[:20])
 
+
 @tool
 def read_file(filepath: str):
-    """Read and return the contents of a file."""
+nl -ba browser_tools.py | sed -n '1,80p'
+     1	import subprocess
+     2	import urllib.parse
+     3	def ott_search(platform, query):
+     4	
+     5	    q = urllib.parse.quote(query)
+     6	
+     7	    urls = {
+     8	        "netflix": f"https://www.netflix.com/search?q={q}",
+     9	        "prime": f"https://www.primevideo.com/search/ref=atv_nb_sr?phrase={q}",
+    10	        "hotstar": f"https://www.hotstar.com/in/search?q={q}",
+    11	        "zee5": f"https://www.zee5.com/search?q={q}",
+    12	        "sony": f"https://www.sonyliv.com/search/{q}"
+    13	    }
+    14	
+    15	    if platform not in urls:
+    16	        return f"Unsupported OTT platform: {platform}"
+    17	
+    18	    subprocess.Popen([
+    19	        "google-chrome",
+    20	        "--profile-directory=Default",
+    21	        urls[platform]
+    22	    ],
+            stdout=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL,
+            start_new_session=True)
+    23	
+    24	    return f"Searching {platform} for {query}"
+    25	def youtube_search(query):
+    26	
+    27	    q = urllib.parse.quote(query)
+    28	
+    29	    subprocess.Popen([
+    30	        "google-chrome",
+    31	        "--profile-directory=Default",
+    32	        f"https://www.youtube.com/results?search_query={q}"
+    33	    ],
+            stdout=subprocess.DEVNULL, 
+            stdout=subprocess.DEVNULL,
+            start_new_session=True)
+    34	
+    35	    return f"Searching YouTube for {query}"
+    36	
+    37	
+    38	def google_search(query):
+    39	
+    40	    q = urllib.parse.quote(query)
+    41	
+    42	    subprocess.Popen([
+    43	        "google-chrome",
+    44	        "--profile-directory=Default",
+    45	        f"https://www.google.com/search?q={q}"
+    46	    ],
+            stdout=subprocess.DEVNULL, 
+            stdout=subprocess.DEVNULL,
+            start_new_session=True)
+    47	
+    48	    return f"Searching Google for {query}"
+    49	
+    50	
+    51	def github_search(query):
+    52	
+    53	    q = urllib.parse.quote(query)
+    54	
+    55	    subprocess.Popen([
+    56	        "google-chrome",
+    57	        "--profile-directory=Default",
+    58	        f"https://github.com/search?q={q}"
+    59	    ],
+            stdout=subprocess.DEVNULL, 
+            stdout=subprocess.DEVNULL,
+            start_new_session=True)
+    60	
+    61	    return f"Searching GitHub for {query}"
+    """
+    Read the contents of a text file.
+
+    Use when the user wants:
+    - read a file
+    - inspect a file
+    - analyze a file
+    - explain a file
+    """
 
     try:
 
-        with open(
-            filepath,
-            "r",
-            encoding="utf-8"
-        ) as f:
+        with open(filepath, "r", encoding="utf-8") as f:
 
-            return f.read()
+            return f.read()[:5000]
 
     except Exception as e:
 
-        return str(e)
+        return f"Error reading file: {e}"
 @tool
 def explain_file(filepath: str):
     """
@@ -236,9 +315,79 @@ def open_vtop():
     """Open VTOP."""
     webbrowser.open("https://vtopcc.vit.ac.in/vtop/content")
     return "VTOP opened"
+@tool
+def open_youtube_personal():
+    """
+    Open YouTube using personal account.
+    """
+
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://www.youtube.com"
+    ])
+
+    return "YouTube opened with personal account"
 
 
+@tool
+def open_gmail_personal():
+    """
+    Open Gmail using personal account.
+    """
 
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://mail.google.com"
+    ])
+
+    return "Gmail opened with personal account"
+
+
+@tool
+def open_netflix_personal():
+    """
+    Open Netflix using personal account.
+    """
+
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://www.netflix.com"
+    ])
+
+    return "Netflix opened with personal account"
+
+
+@tool
+def open_netflix_personal():
+    """
+    Open Netflix using personal account.
+    """
+
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://www.primevideo.com"
+    ])
+
+    return "Prime Video opened with personal account"
+
+
+@tool
+def open_hotstar_personal():
+    """
+    Open Hotstar using personal account.
+    """
+
+    subprocess.Popen([
+        "google-chrome",
+        "--profile-directory=Default",
+        "https://www.hotstar.com"
+    ])
+
+    return "Hotstar opened with personal account"
 @tool
 def open_youtube_personal():
     """
@@ -303,7 +452,7 @@ def open_hotstar_personal():
 
     subprocess.Popen([
         "google-chrome",
-	"--profile-directory=Default",
+	"--profile-directory=Default"
         "https://www.hotstar.com"
     ])
 

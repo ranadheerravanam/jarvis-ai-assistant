@@ -1,6 +1,7 @@
 from langchain_ollama import ChatOllama
 from rag.rag_engine import ask_rag
 from code_rag.code_engine import ask_code
+from browser_agent import browser_agent
 from memory import save_memory, get_memories
 from tools import *
 from browser_tools import (
@@ -283,17 +284,33 @@ User:
         print()
 
         continue
+    if user.lower().startswith(
+        (
+            "google",
+            "github",
+            "youtube",
+            "netflix",
+            "prime",
+            "hotstar",
+            "open netflix",
+            "open hotstar",
+            "open prime"
+        )
+    ):
+
+        print("\nJarvis:")
+
+        print(
+            browser_agent(user)
+        )
+
+        print()
+
+        continue
     # NORMAL CHAT
 
     response = llm.invoke(user)
 
-    print("\nJarvis:")
-    print(response.content)
-    print()
-
-
-#Normal Chat
-    response = llm.invoke(prompt)
     print("\nJarvis:")
     print(response.content)
     print()

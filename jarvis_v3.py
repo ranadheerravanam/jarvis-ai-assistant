@@ -16,7 +16,6 @@ llm = ChatOllama(model="llama3.2")
 
 print("=== Jarvis v3 ===")
 print("Type exit to quit\n")
-
 while True:
 
     user = input("You: ")

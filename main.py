@@ -1,14 +1,24 @@
-from langchain_ollama import ChatOllama
+from core.processor import process
 
-llm = ChatOllama(model="llama3.2")
+print("=" * 50)
+print("        JARVIS v4")
+print("=" * 50)
 
 while True:
-    user = input("You: ")
 
-    if user.lower() == "exit":
+    command = input("\nYou: ")
+
+    if command.lower() == "exit":
         break
 
-    response = llm.invoke(user)
+    try:
 
-    print("\nJarvis:", response.content)
-    print()
+        reply = process(command)
+
+        print("\nJarvis:")
+        print(reply)
+
+    except Exception as e:
+
+        print("\nError:")
+        print(e)

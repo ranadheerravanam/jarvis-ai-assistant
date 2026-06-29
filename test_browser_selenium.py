@@ -1,9 +1,12 @@
-from browser_selenium_agent import browser_command
+from selenium_browser_agent import browser_agent
 
-print(
-    browser_command(
-        input("Command: ")
+while True:
+
+    cmd = input("Command: ")
+
+    if cmd == "exit":
+        break
+
+    print(
+        browser_agent(cmd)
     )
-)
-
-input("Press Enter...")

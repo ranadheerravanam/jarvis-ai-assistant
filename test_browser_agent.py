@@ -1,7 +1,10 @@
-from browser_agent import browser_agent
+from selenium_browser_agent import browser_agent
 
-command = input("Command: ")
+while True:
 
-print(
-    browser_agent(command)
-)
+    cmd = input("Command: ")
+
+    if cmd == "exit":
+        break
+
+    print(browser_agent(cmd))

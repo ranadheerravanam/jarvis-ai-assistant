@@ -1,0 +1,57 @@
+2026/06/29-15:38:59.987 7aac Reusing MANIFEST /home/ranadheer/jarvis/whatsapp/whatsapp_profile/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/06/29-15:38:59.988 7aac Recovering log #988
+2026/06/29-15:39:00.063 7aac Reusing old log /home/ranadheer/jarvis/whatsapp/whatsapp_profile/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000988.log 
+2026/06/29-15:39:22.299 7aab Level-0 table #1004: started
+2026/06/29-15:39:22.926 7aab Level-0 table #1004: 1250979 bytes OK
+2026/06/29-15:39:22.965 7aab Delete type=0 #988
+2026/06/29-15:39:25.105 7aac Compacting 1@0 + 0@1 files
+2026/06/29-15:39:25.171 7aac Generated table #1005@0: 23733 keys, 424420 bytes
+2026/06/29-15:39:25.196 7aac Generated table #1006@0: 6000 keys, 199104 bytes
+2026/06/29-15:39:25.197 7aac Compacted 1@0 + 0@1 files => 623524 bytes
+2026/06/29-15:39:25.234 7aac compacted to: files[ 0 2 23 0 0 0 0 ]
+2026/06/29-15:39:25.235 7aac Delete type=2 #1004
+2026/06/29-15:39:32.661 7aae Compacting 1@1 + 10@2 files
+2026/06/29-15:39:32.929 7aae Generated table #1007@1: 50268 keys, 2232470 bytes
+2026/06/29-15:39:34.185 7aae Generated table #1008@1: 55446 keys, 2222257 bytes
+2026/06/29-15:39:34.259 7aae Generated table #1009@1: 15239 keys, 2168789 bytes
+2026/06/29-15:39:34.339 7aae Generated table #1010@1: 2080 keys, 2158074 bytes
+2026/06/29-15:39:34.418 7aae Generated table #1011@1: 2296 keys, 2158549 bytes
+2026/06/29-15:39:34.498 7aae Generated table #1012@1: 2380 keys, 2164495 bytes
+2026/06/29-15:39:34.584 7aae Generated table #1013@1: 3376 keys, 2161269 bytes
+2026/06/29-15:39:34.664 7aae Generated table #1014@1: 3220 keys, 2154257 bytes
+2026/06/29-15:39:34.742 7aae Generated table #1015@1: 3005 keys, 2154315 bytes
+2026/06/29-15:39:34.858 7aae Generated table #1016@1: 28855 keys, 2099723 bytes
+2026/06/29-15:39:34.858 7aae Compacted 1@1 + 10@2 files => 21674198 bytes
+2026/06/29-15:39:35.145 7aae compacted to: files[ 0 1 23 0 0 0 0 ]
+2026/06/29-15:39:35.146 7aae Delete type=2 #973
+2026/06/29-15:39:35.146 7aae Delete type=2 #1001
+2026/06/29-15:39:35.146 7aae Delete type=2 #970
+2026/06/29-15:39:35.146 7aae Delete type=2 #1005
+2026/06/29-15:39:35.146 7aae Delete type=2 #969
+2026/06/29-15:39:35.146 7aae Delete type=2 #1000
+2026/06/29-15:39:35.146 7aae Delete type=2 #999
+2026/06/29-15:39:35.146 7aae Delete type=2 #967
+2026/06/29-15:39:35.146 7aae Delete type=2 #972
+2026/06/29-15:39:35.146 7aae Delete type=2 #971
+2026/06/29-15:39:35.146 7aae Delete type=2 #968
+2026/06/29-15:39:45.395 7aac Compacting 1@1 + 9@2 files
+2026/06/29-15:39:46.015 7aac Generated table #1017@1: 25865 keys, 2270639 bytes
+2026/06/29-15:39:46.094 7aac Generated table #1018@1: 27130 keys, 2242011 bytes
+2026/06/29-15:39:46.161 7aac Generated table #1019@1: 19229 keys, 2208570 bytes
+2026/06/29-15:39:46.227 7aac Generated table #1020@1: 38394 keys, 2171651 bytes
+2026/06/29-15:39:46.331 7aac Generated table #1021@1: 104070 keys, 2255857 bytes
+2026/06/29-15:39:46.434 7aac Generated table #1022@1: 102136 keys, 2252926 bytes
+2026/06/29-15:39:46.537 7aac Generated table #1023@1: 94883 keys, 2243615 bytes
+2026/06/29-15:39:46.575 7aac Generated table #1024@1: 9146 keys, 448834 bytes
+2026/06/29-15:39:46.575 7aac Compacted 1@1 + 9@2 files => 16094103 bytes
+2026/06/29-15:39:46.612 7aac compacted to: files[ 0 0 22 0 0 0 0 ]
+2026/06/29-15:39:46.612 7aac Delete type=2 #986
+2026/06/29-15:39:46.612 7aac Delete type=2 #995
+2026/06/29-15:39:46.612 7aac Delete type=2 #1006
+2026/06/29-15:39:46.612 7aac Delete type=2 #957
+2026/06/29-15:39:46.612 7aac Delete type=2 #993
+2026/06/29-15:39:46.612 7aac Delete type=2 #996
+2026/06/29-15:39:46.612 7aac Delete type=2 #992
+2026/06/29-15:39:46.612 7aac Delete type=2 #994
+2026/06/29-15:39:46.612 7aac Delete type=2 #998
+2026/06/29-15:39:46.612 7aac Delete type=2 #997

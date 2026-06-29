@@ -1,0 +1,14 @@
+from selenium_agent import (
+    github_open_first_result,
+    get_page_text
+)
+
+github_open_first_result(
+    "langchain"
+)
+
+input("Wait until repository loads then press Enter...")
+
+text = get_page_text()
+
+print(text[:3000])

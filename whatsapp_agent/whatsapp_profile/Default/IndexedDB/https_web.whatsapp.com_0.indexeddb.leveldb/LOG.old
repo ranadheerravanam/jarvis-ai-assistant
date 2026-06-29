@@ -1,0 +1,151 @@
+2026/06/29-11:33:18.236 3d04 Creating DB /home/ranadheer/jarvis/whatsapp_agent/whatsapp_profile/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb since it was missing.
+2026/06/29-11:33:18.378 3d04 Reusing MANIFEST /home/ranadheer/jarvis/whatsapp_agent/whatsapp_profile/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/06/29-11:33:50.448 3d02 Level-0 table #5: started
+2026/06/29-11:33:50.937 3d02 Level-0 table #5: 1092059 bytes OK
+2026/06/29-11:33:51.051 3d02 Delete type=0 #3
+2026/06/29-11:33:52.956 3d02 Level-0 table #7: started
+2026/06/29-11:33:53.450 3d02 Level-0 table #7: 1267019 bytes OK
+2026/06/29-11:33:53.793 3d02 Delete type=0 #4
+2026/06/29-11:33:53.947 3d04 Compacting 1@1 + 1@2 files
+2026/06/29-11:33:54.508 3d04 Generated table #8@1: 33707 keys, 1600794 bytes
+2026/06/29-11:33:54.515 3d04 Compacted 1@1 + 1@2 files => 1600794 bytes
+2026/06/29-11:33:55.125 3d04 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/06/29-11:33:57.258 3d04 Level-0 table #10: started
+2026/06/29-11:33:57.505 3d04 Level-0 table #10: 1127920 bytes OK
+2026/06/29-11:33:57.854 3d04 Delete type=2 #5
+2026/06/29-11:33:57.854 3d04 Delete type=2 #7
+2026/06/29-11:33:57.854 3d04 Delete type=0 #6
+2026/06/29-11:33:58.748 3d01 Compacting 1@1 + 1@2 files
+2026/06/29-11:33:59.289 3d01 Generated table #11@1: 31457 keys, 1876586 bytes
+2026/06/29-11:33:59.290 3d01 Compacted 1@1 + 1@2 files => 1876586 bytes
+2026/06/29-11:34:00.696 3d01 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/06/29-11:34:00.697 3d01 Delete type=2 #10
+2026/06/29-11:34:00.697 3d01 Delete type=2 #8
+2026/06/29-11:34:02.820 3d02 Level-0 table #13: started
+2026/06/29-11:34:02.987 3d02 Level-0 table #13: 1125646 bytes OK
+2026/06/29-11:34:03.401 3d02 Delete type=0 #9
+2026/06/29-11:34:03.404 3d01 Compacting 1@1 + 1@2 files
+2026/06/29-11:34:03.746 3d01 Generated table #14@1: 37261 keys, 2203160 bytes
+2026/06/29-11:34:03.746 3d01 Level-0 table #16: started
+2026/06/29-11:34:03.823 3d02 Current memtable full; waiting...
+2026/06/29-11:34:03.891 3d01 Level-0 table #16: 1076776 bytes OK
+2026/06/29-11:34:04.122 3d01 Delete type=0 #12
+2026/06/29-11:34:04.124 3d01 Level-0 table #19: started
+2026/06/29-11:34:04.307 3d01 Level-0 table #19: 1116365 bytes OK
+2026/06/29-11:34:04.428 3d01 Delete type=0 #15
+2026/06/29-11:34:05.068 3d01 Generated table #17@1: 2288 keys, 120585 bytes
+2026/06/29-11:34:05.068 3d01 Compacted 1@1 + 1@2 files => 2323745 bytes
+2026/06/29-11:34:05.238 3d01 compacted to: files[ 2 0 2 0 0 0 0 ]
+2026/06/29-11:34:05.238 3d01 Level-0 table #21: started
+2026/06/29-11:34:05.406 3d02 Current memtable full; waiting...
+2026/06/29-11:34:05.408 3d01 Level-0 table #21: 1040494 bytes OK
+2026/06/29-11:34:05.661 3d01 Delete type=2 #13
+2026/06/29-11:34:05.661 3d01 Delete type=2 #11
+2026/06/29-11:34:05.661 3d01 Delete type=0 #18
+2026/06/29-11:34:05.664 3d01 Level-0 table #23: started
+2026/06/29-11:34:05.853 3d01 Level-0 table #23: 1201190 bytes OK
+2026/06/29-11:34:06.039 3d01 Delete type=0 #20
+2026/06/29-11:34:06.040 3d01 Compacting 4@0 + 0@1 files
+2026/06/29-11:34:06.320 3d01 Generated table #24@0: 84904 keys, 2245397 bytes
+2026/06/29-11:34:06.539 3d01 Generated table #25@0: 13380 keys, 693004 bytes
+2026/06/29-11:34:06.539 3d01 Compacted 4@0 + 0@1 files => 2938401 bytes
+2026/06/29-11:34:06.698 3d01 compacted to: files[ 0 2 2 0 0 0 0 ]
+2026/06/29-11:34:06.699 3d01 Level-0 table #27: started
+2026/06/29-11:34:06.801 3d01 Level-0 table #27: 1170166 bytes OK
+2026/06/29-11:34:06.923 3d02 Current memtable full; waiting...
+2026/06/29-11:34:07.198 3d01 Delete type=2 #21
+2026/06/29-11:34:07.198 3d01 Delete type=2 #16
+2026/06/29-11:34:07.198 3d01 Delete type=0 #22
+2026/06/29-11:34:07.198 3d01 Delete type=2 #23
+2026/06/29-11:34:07.198 3d01 Delete type=2 #19
+2026/06/29-11:34:07.203 3d01 Level-0 table #29: started
+2026/06/29-11:34:07.354 3d01 Level-0 table #29: 883135 bytes OK
+2026/06/29-11:34:08.063 3d02 Current memtable full; waiting...
+2026/06/29-11:34:08.214 3d01 Delete type=0 #26
+2026/06/29-11:34:08.216 3d01 Level-0 table #31: started
+2026/06/29-11:34:08.342 3d01 Level-0 table #31: 1138751 bytes OK
+2026/06/29-11:34:08.660 3d01 Delete type=0 #28
+2026/06/29-11:34:08.661 3d01 Level-0 table #33: started
+2026/06/29-11:34:08.848 3d01 Level-0 table #33: 1179396 bytes OK
+2026/06/29-11:34:09.173 3d01 Delete type=0 #30
+2026/06/29-11:34:09.174 3d01 Compacting 4@0 + 2@1 files
+2026/06/29-11:34:09.385 3d01 Generated table #34@0: 102946 keys, 2259329 bytes
+2026/06/29-11:34:09.937 3d02 Current memtable full; waiting...
+2026/06/29-11:34:10.282 3d01 Generated table #35@0: 56017 keys, 2211778 bytes
+2026/06/29-11:34:10.283 3d01 Level-0 table #37: started
+2026/06/29-11:34:10.388 3d01 Level-0 table #37: 1211860 bytes OK
+2026/06/29-11:34:10.461 3d01 Delete type=0 #32
+2026/06/29-11:34:10.462 3d01 Level-0 table #40: started
+2026/06/29-11:34:10.542 3d01 Level-0 table #40: 932751 bytes OK
+2026/06/29-11:34:10.605 3d01 Delete type=0 #36
+2026/06/29-11:34:10.721 3d01 Generated table #38@0: 31984 keys, 1487009 bytes
+2026/06/29-11:34:10.721 3d01 Compacted 4@0 + 2@1 files => 5958116 bytes
+2026/06/29-11:34:10.784 3d01 compacted to: files[ 2 3 2 0 0 0 0 ]
+2026/06/29-11:34:10.785 3d01 Compacting 2@0 + 3@1 files
+2026/06/29-11:34:11.277 3d01 Generated table #41@0: 95379 keys, 2250934 bytes
+2026/06/29-11:34:11.277 3d01 Level-0 table #43: started
+2026/06/29-11:34:11.900 3d01 Level-0 table #43: 1355934 bytes OK
+2026/06/29-11:34:11.946 3d01 Delete type=2 #33
+2026/06/29-11:34:11.946 3d01 Delete type=2 #31
+2026/06/29-11:34:11.946 3d01 Delete type=2 #24
+2026/06/29-11:34:11.946 3d01 Delete type=0 #39
+2026/06/29-11:34:11.946 3d01 Delete type=2 #27
+2026/06/29-11:34:11.946 3d01 Delete type=2 #29
+2026/06/29-11:34:11.946 3d01 Delete type=2 #25
+2026/06/29-11:34:12.123 3d01 Generated table #44@0: 61721 keys, 2211459 bytes
+2026/06/29-11:34:12.400 3d01 Generated table #45@0: 50767 keys, 2211957 bytes
+2026/06/29-11:34:12.599 3d01 Generated table #46@0: 17570 keys, 601771 bytes
+2026/06/29-11:34:12.600 3d01 Compacted 2@0 + 3@1 files => 7276121 bytes
+2026/06/29-11:34:12.803 3d01 compacted to: files[ 1 4 2 0 0 0 0 ]
+2026/06/29-11:34:12.896 3d02 Compacting 1@0 + 4@1 files
+2026/06/29-11:34:13.153 3d02 Generated table #47@0: 149478 keys, 2315650 bytes
+2026/06/29-11:34:13.393 3d02 Generated table #48@0: 55349 keys, 2213038 bytes
+2026/06/29-11:34:14.547 3d02 Generated table #49@0: 38292 keys, 1781106 bytes
+2026/06/29-11:34:14.547 3d02 Compacted 1@0 + 4@1 files => 6309794 bytes
+2026/06/29-11:34:14.909 3d02 compacted to: files[ 0 3 2 0 0 0 0 ]
+2026/06/29-11:34:14.909 3d02 Delete type=2 #35
+2026/06/29-11:34:14.909 3d02 Delete type=2 #34
+2026/06/29-11:34:14.910 3d02 Delete type=2 #40
+2026/06/29-11:34:14.910 3d02 Delete type=2 #38
+2026/06/29-11:34:14.910 3d02 Delete type=2 #37
+2026/06/29-11:34:14.914 3d02 Level-0 table #51: started
+2026/06/29-11:34:15.196 3d02 Level-0 table #51: 763050 bytes OK
+2026/06/29-11:34:15.942 3d01 Current memtable full; waiting...
+2026/06/29-11:34:16.548 3d02 Delete type=2 #44
+2026/06/29-11:34:16.548 3d02 Delete type=2 #41
+2026/06/29-11:34:16.548 3d02 Delete type=0 #42
+2026/06/29-11:34:16.548 3d02 Delete type=2 #43
+2026/06/29-11:34:16.548 3d02 Delete type=2 #45
+2026/06/29-11:34:16.548 3d02 Delete type=2 #46
+2026/06/29-11:34:16.550 3d02 Level-0 table #53: started
+2026/06/29-11:34:16.842 3d02 Level-0 table #53: 1070758 bytes OK
+2026/06/29-11:34:17.119 3d02 Delete type=0 #50
+2026/06/29-11:34:17.126 3d02 Compacting 2@0 + 3@1 files
+2026/06/29-11:34:17.520 3d02 Generated table #54@0: 194179 keys, 2376666 bytes
+2026/06/29-11:34:17.989 3d02 Generated table #55@0: 50412 keys, 2217016 bytes
+2026/06/29-11:34:19.097 3d02 Generated table #56@0: 13715 keys, 448258 bytes
+2026/06/29-11:34:19.098 3d02 Compacted 2@0 + 3@1 files => 5041940 bytes
+2026/06/29-11:34:19.557 3d02 compacted to: files[ 0 3 2 0 0 0 0 ]
+2026/06/29-11:34:19.557 3d02 Delete type=2 #48
+2026/06/29-11:34:19.558 3d02 Delete type=2 #53
+2026/06/29-11:34:19.558 3d02 Delete type=2 #51
+2026/06/29-11:34:19.558 3d02 Delete type=2 #49
+2026/06/29-11:34:19.558 3d02 Delete type=2 #47
+2026/06/29-11:34:20.860 3d02 Compacting 1@1 + 1@2 files
+2026/06/29-11:34:21.527 3d02 Generated table #57@1: 57838 keys, 2223305 bytes
+2026/06/29-11:34:21.527 3d02 Level-0 table #59: started
+2026/06/29-11:34:21.611 3d02 Level-0 table #59: 1146512 bytes OK
+2026/06/29-11:34:21.816 3d02 Delete type=0 #52
+2026/06/29-11:34:21.951 3d02 Generated table #60@1: 24401 keys, 1984860 bytes
+2026/06/29-11:34:21.951 3d02 Compacted 1@1 + 1@2 files => 4208165 bytes
+2026/06/29-11:34:22.077 3d02 compacted to: files[ 1 2 3 0 0 0 0 ]
+2026/06/29-11:34:22.259 3d04 Compacting 1@0 + 2@1 files
+2026/06/29-11:34:23.721 3d04 Generated table #61@0: 193631 keys, 2374108 bytes
+2026/06/29-11:34:23.815 3d04 Generated table #62@0: 30165 keys, 1334709 bytes
+2026/06/29-11:34:23.816 3d04 Compacted 1@0 + 2@1 files => 3708817 bytes
+2026/06/29-11:34:23.853 3d04 compacted to: files[ 0 2 3 0 0 0 0 ]
+2026/06/29-11:34:23.853 3d04 Delete type=2 #56
+2026/06/29-11:34:23.853 3d04 Delete type=2 #14
+2026/06/29-11:34:23.854 3d04 Delete type=2 #59
+2026/06/29-11:34:23.854 3d04 Delete type=2 #54
+2026/06/29-11:34:23.854 3d04 Delete type=2 #55
